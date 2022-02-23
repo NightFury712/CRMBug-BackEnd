@@ -39,7 +39,9 @@ namespace BugTracking.API.Base
                 {
                     if (employees.Count() > 0)
                     {
-                        return Ok(employees);
+                        _serviceResult.Data = employees;
+                        _serviceResult.Success = true;
+                        return Ok(_serviceResult);
                     }
                 }
                 return NoContent();

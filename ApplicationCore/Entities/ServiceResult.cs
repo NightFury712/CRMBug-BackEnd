@@ -21,5 +21,7 @@ namespace ApplicationCore.Entities
         /// Mã của kết quả
         /// </summary>
         public Code Code { get; set; }
+
+        public bool Success { get; set; }
     }
 }

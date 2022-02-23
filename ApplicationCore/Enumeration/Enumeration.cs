@@ -57,5 +57,32 @@ namespace ApplicationCore.Enumeration
             /// </summary>
             Exception = 500,
         }
+
+        /// <summary>
+        /// Loại vấn đề
+        /// </summary>
+        public enum IssueType
+        {
+            Task = 0,
+            Bug = 1,
+            Request = 2,
+            Orther = 3
+        }
+
+        public enum Priority
+        {
+            Low = 0,
+            Normal = 1,
+            High = 2
+        }
+
+        public enum IssueStatus
+        {
+            New = 0,
+            Approved = 1,
+            Commited = 2,
+            Done = 3,
+            Removed = 4
+        }
     }
 }

@@ -9,6 +9,8 @@ using ApplicationCore.Interfaces.DL;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using System.ComponentModel.DataAnnotations.Schema;
+using MySqlX.XDevAPI.Relational;
 
 namespace Infarstructure.Base
 {
@@ -64,7 +66,9 @@ namespace Infarstructure.Base
             _dbConnection.Open();
             // Xử lý các kiểu dữ liệu (mapping dataType):
             var parameters = MappingDbtype(entity);
-            string query = "INSERT INTO issue (Type,Subject, Priority) VALUE (1, \'Bug can fix\', 2)";
+            var properties = entity.GetType().GetProperties();
+            var propertyNames = properties.Where(item => item.IsDefined(typeof(TableColumn), false)).Select(item => item.Name);
+            string query = $"INSERT INTO issue ({string.Join(",", propertyNames)}) VALUE ({string.Join(",", propertyNames.Select(item => $"@{item}"))})";
             // Thực thi commandText
             rowAffects = _dbConnection.Execute(query, parameters, commandType: CommandType.Text);
             // Trả về kết quả (Số bản ghi thêm mới được)

@@ -70,6 +70,8 @@ namespace BugTracking
 
             app.UseRouting();
 
+            app.UseCors("ApiCorsPolicy");
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

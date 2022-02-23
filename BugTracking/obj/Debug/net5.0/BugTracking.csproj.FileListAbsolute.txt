@@ -48,3 +48,8 @@ D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\Inf
 D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\Dapper.dll
 D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\MySqlConnector.dll
 D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\web.config
+D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\EPPlus.dll
+D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\System.IO.Pipelines.dll
+D:\Tài liệu học tập\Back-end\BugTracking\BugTracking\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
