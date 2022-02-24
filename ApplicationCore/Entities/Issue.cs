@@ -15,8 +15,6 @@ namespace ApplicationCore.Entities
     public class Issue : BaseEntity
     {
         #region Properties
-        public string ID { get; set; }
-
         [TableColumn]
         public int TypeID { get; set; }
         [TableColumn]

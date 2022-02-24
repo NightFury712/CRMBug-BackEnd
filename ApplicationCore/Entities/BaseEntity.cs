@@ -10,7 +10,8 @@ namespace ApplicationCore.Entities
     public class BaseEntity
     {
         #region Properties
-        public EntityState EntityState { get; set; } = EntityState.Add;
+        public int ID { get; set; }
+        public EntityState EntityState { get; set; } = EntityState.Edit;
         /// <summary>
         /// Thời gian tạo
         /// </summary>

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System.ComponentModel.DataAnnotations.Schema;
 using MySqlX.XDevAPI.Relational;
+using static ApplicationCore.Enumeration.Enumeration;
 
 namespace Infarstructure.Base
 {
@@ -68,7 +69,19 @@ namespace Infarstructure.Base
             var parameters = MappingDbtype(entity);
             var properties = entity.GetType().GetProperties();
             var propertyNames = properties.Where(item => item.IsDefined(typeof(TableColumn), false)).Select(item => item.Name);
-            string query = $"INSERT INTO issue ({string.Join(",", propertyNames)}) VALUE ({string.Join(",", propertyNames.Select(item => $"@{item}"))})";
+            string query = "";
+            switch(entity.EntityState)
+            {
+                case EntityState.Add:
+                    query = $"INSERT INTO issue ({string.Join(",", propertyNames)}) VALUE ({string.Join(",", propertyNames.Select(item => $"@{item}"))})";
+                    break;
+                case EntityState.Edit:
+                    query = $"UPDATE issue SET {string.Join(",", propertyNames.Select(item => $"{item} = @{item}"))} WHERE ID = {entity.ID}";
+                    break;
+                default:
+                    query = "SELECT 1";
+                    break;
+            }
             // Thực thi commandText
             rowAffects = _dbConnection.Execute(query, parameters, commandType: CommandType.Text);
             // Trả về kết quả (Số bản ghi thêm mới được)

@@ -41,7 +41,6 @@ namespace ApplicationCore.BL
 
         public virtual ServiceResult Save(T entity)
         {
-            entity.EntityState = EntityState.Add;
             // Thêm mới dữ liệu khi đã hợp lệ:
             //if(isValid)
             //{
